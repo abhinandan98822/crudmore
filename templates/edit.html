@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update your data</title>
+  </head>
+  <body>
+
+<form method="POST" action="/update/{{data.id}}" enctype="multipart/form-data">
+ 
+    {% csrf_token %}
+    <div class="container">
+        {{male}}
+        {{female}}
+        {{others}}
+      <div class="data">
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" placeholder="firstname.." value="{{data.firstname}}" />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Lastname</label>
+        <input type="text" name="lastname" placeholder="lastname.." value="{{data.lastname}}" />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Age</label>
+        <input type="number" name="age" placeholder="age.." value="{{data.age}}" />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Email</label>
+        <input type="email" name="email" placeholder="email.." value="{{data.email}}" />
+      </div><br><br>
+
+
+      <div class="data">
+        <label for="">Mobile</label>
+        <input type="number" name="mobile" placeholder="age.." value="{{data.mobile}}"/>
+      </div><br><br>
+
+
+      <div class="data">
+        <label for="">Gender</label>
+        <input type="radio" name="gender" value="Male"{% if male %}checked {% endif %}/>Male
+        <input type="radio" name="gender" value="Female"{% if female %}checked {% endif %}/>Female
+        <input type="radio" name="gender" value="Others"{% if others %}checked {% endif %}/>Others
+      </div><br><br>
+
+      <div class="button">
+        <button>Update</button>
+      </div>
+    </div>
+</form>
+  </body>
+</html>

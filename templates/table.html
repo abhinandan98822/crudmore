@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database table</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form method="GET" action="{% url 'search' %}">
+        {{result}}
+    <label for="gsearch">Search</label>
+    <input type="search" id="gsearch" name="search" placeholder="search data here..." > 
+    <input type="submit">
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    
+    <table >
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>email</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>Action</th>
+    </tr>
+    {% for datas in data %}
+    <tr>
+        <td>{{datas.firstname}}</td>
+        <td>{{datas.lastname}}</td>
+        <td>{{datas.age}}</td>
+        <td>{{datas.email}}</td>
+        <td>{{datas.mobile}}</td>
+        <td>{{datas.gender}}</td>
+        <td>
+        <button><a href="/edit/{{datas.id}}">Edit</a></button>
+        <button><a href="/delete/{{datas.id}}">Delete</a></button>
+    </td>
+    </tr>
+    {% endfor %}
+</form>
+</body>
+</html>

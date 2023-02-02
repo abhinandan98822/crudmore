@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+
+<form method="POST" enctype="multipart/form-data">
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% csrf_token %}
+    <div class="container">
+      <div class="data">
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" placeholder="firstname.." />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Lastname</label>
+        <input type="text" name="lastname" placeholder="lastname.." />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Age</label>
+        <input type="number" name="age" placeholder="age.." />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Email</label>
+        <input type="email" name="email" placeholder="email.." />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Password</label>
+        <input type="password" name="password" placeholder="enter password.." />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Confirm-Password</label>
+        <input
+          type="password"
+          name="confirmpassword"
+          placeholder="enter confirm-password"
+        />
+      </div><br><br>
+
+      <div class="data">
+        <label for="">Mobile</label>
+        <input type="number" name="mobile" placeholder="enter mobile number" />
+      </div><br><br>
+
+
+      <div class="data">
+        <label for="">Gender</label>
+        <input type="radio" name="gender" value="Male" />Male
+        <input type="radio" name="gender" value="Female" />Female
+        <input type="radio" name="gender" value="Others" />Others
+      </div><br><br>
+
+      <div class="button">
+        <button>Submit</button>
+      </div>
+    </div>
+</form>
+  </body>
+</html>
